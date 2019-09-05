@@ -1,19 +1,14 @@
-from collections import defaultdict
-from pyhanlp import HanLP
 import json
+import os
 
+_HOME = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 # fetch from
-# PARENT_SOURCE_JSON = '/home/huper/wordplace/virtual/81890/data/vocab/parent.json'
-# SIMILAR_SOURCE_JSON = '/home/huper/wordplace/virtual/81890/data/vocab/similar.json'
-PARENT_SOURCE_JSON = '../../data/vocab/parent.json'
-SIMILAR_SOURCE_JSON = '../../data/vocab/similar.json'
+PARENT_SOURCE_JSON = os.path.join(_HOME, 'data/vocab/parent.json')
+SIMILAR_SOURCE_JSON = os.path.join(_HOME, 'data/vocab/similar.json')
 
 # save to
-# PARENT_INDEX_JSON = '/home/huper/wordplace/virtual/81890/data/vocab/parent.json'
-# SIMILAR_INDEX_JSON = '/home/huper/wordplace/virtual/81890/data/vocab/similar_index.json'
-
-PARENT_INDEX_JSON = '../../data/vocab/parent_index.json'
-SIMILAR_INDEX_JSON = '../../data/vocab/similar_index.json'
+PARENT_INDEX_JSON = os.path.join(_HOME, 'data/vocab/parent_index.json')
+SIMILAR_INDEX_JSON = os.path.join(_HOME, 'data/vocab/similar_index.json')
 
 
 def make_vocab():

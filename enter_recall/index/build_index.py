@@ -1,21 +1,18 @@
 from collections import defaultdict
 from pyhanlp import HanLP
 import json
+import os
 
-from enter_recall.constant import V_SET, SAVED, FIL_SET
+from enter_recall.constant import V_SET, FIL_SET
 
+_HOME = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 # fetch from
-# ITEM_SOURCE_JSON = '/home/huper/wordplace/virtual/81890/data/update/sqlserver/item.json'
-# TYPE_SOURCE_JSON = '/home/huper/wordplace/virtual/81890/data/update/sqlserver/type.json'
-ITEM_SOURCE_JSON = '../../data/update/sqlserver/item.json'
-TYPE_SOURCE_JSON = '../../data/update/sqlserver/type.json'
+ITEM_SOURCE_JSON = os.path.join(_HOME, 'data/update/sqlserver/item.json')
+TYPE_SOURCE_JSON = os.path.join(_HOME, 'data/update/sqlserver/type.json')
 
 # save to
-# ITEM_INDEX_JSON = '/home/huper/wordplace/virtual/81890/data/sqlserver/itemIndex.json'
-# TYPE_INDEX_JSON = '/home/huper/wordplace/virtual/81890/data/sqlserver/typeIndex.json'
-
-ITEM_INDEX_JSON = '../../data/sqlserver/itemIndex.json'
-TYPE_INDEX_JSON = '../../data/sqlserver/typeIndex.json'
+ITEM_INDEX_JSON = os.path.join(_HOME, 'data/sqlserver/itemIndex.json')
+TYPE_INDEX_JSON = os.path.join(_HOME, 'data/sqlserver/typeIndex.json')
 
 ITEM_DICT = defaultdict(dict)
 TYPE_DICT = defaultdict()
