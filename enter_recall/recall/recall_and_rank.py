@@ -89,18 +89,22 @@ def get_keywords(query, par_dict, sim_dic):
     return keywords
 
 
-def query_request(sentence, limits, org, item_dict, type_dict, par_dict, sim_dic):
+def query_request(sentence, limits, org, item_dict, type_dict, par_dict, sim_dic, verbose=False):
     keywords = get_keywords(sentence, par_dict, sim_dic)
     res = recall_and_rank(keywords, limits, org, item_dict, type_dict)
-    try:
-        return json.dumps({
-            'enterMatch': res[0],
-            'codeMatch': res[1][0],
-            'messageCode': 0,
-            'info': '解析并匹配成功。'
-        }, ensure_ascii=False)
-    except ValueError:
-        return json.dumps({
-            'messageCode': -1,
-            'info': '解析并匹配失败。'
-        }, ensure_ascii=False)
+
+    if not verbose:
+        try:
+            return json.dumps({
+                'enterMatch': res[0],
+                'codeMatch': res[1][0],
+                'messageCode': 0,
+                'info': '解析并匹配成功。'
+            }, ensure_ascii=False)
+        except ValueError:
+            return json.dumps({
+                'messageCode': -1,
+                'info': '解析并匹配失败。'
+            }, ensure_ascii=False)
+    else:
+        return res
