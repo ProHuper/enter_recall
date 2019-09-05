@@ -38,7 +38,7 @@ def make_index():
                     ITEM_DICT[item['ENTERPRISE_ID']]['items'].add(_word)
                 elif nature == 'v' and _word in V_SET:
                     ITEM_DICT[item['ENTERPRISE_ID']]['items'].add(_word)
-                elif nature in ['n', 'ng', 'nh', 'nhd', 'nl', 'nm', 'nz', 'nba'] and _word not in FIL_SET:
+                elif nature in ['n', 'ng', 'nh', 'nhd', 'nl', 'nm', 'nz', 'nba'] and _word not in FIL_SET and len(_word) > 1:
                     ITEM_DICT[item['ENTERPRISE_ID']]['items'].add(_word)
 
         for key in ITEM_DICT.keys():
@@ -71,5 +71,3 @@ def make_index():
 
 if __name__ == '__main__':
     make_index()
-    # from enter_recall.servering.server import debugger
-    # debugger()

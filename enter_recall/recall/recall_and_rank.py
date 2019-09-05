@@ -53,7 +53,7 @@ def recall_and_rank(keys, limits, org, items, types):
     check_match_item(keys, match_item, org, items)
     check_match_type(keys, match_type, types)
     enter_res = sorted(match_item, key=lambda x: -x[1])[0: limits]
-    type_res = sorted(match_type, key=lambda x: -x[1])[1]
+    type_res = sorted(match_type, key=lambda x: -x[1])[0]
     return enter_res, type_res
 
 
@@ -85,7 +85,7 @@ def get_keywords(query, par_dict, sim_dic):
     for item in added:
         if item[0] not in visited:
             keywords.append(item)
-            visited.add(item)
+            visited.add(item[0])
     return keywords
 
 

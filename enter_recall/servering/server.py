@@ -42,17 +42,6 @@ def update():
         return json.dumps({'message': 'failed'})
 
 
-def debugger():
-    load()
-    recall_and_rank.query_request('空调',
-                                  int(10),
-                                  int(2),
-                                  item_dict=item_dict,
-                                  type_dict=type_dict,
-                                  par_dict=parent_vocab,
-                                  sim_dic=sim_vocab)
-
-
 if __name__ == '__main__':
     load()
     # app.run(host='10.74.28.4', port=443)

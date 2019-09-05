@@ -38,13 +38,13 @@ def show_index():
 
 
 def show_keywords(inp):
-    return recall_and_rank.get_keywords(inp, parent_vocab, sim_vocab)
+    print(recall_and_rank.get_keywords(inp, parent_vocab, sim_vocab))
 
 
 if __name__ == '__main__':
     load()
     while True:
-        sentence = input()
+        sentence = input('请输入查询：')
         if sentence == 'index':
             show_index()
         elif sentence.startswith('--'):
@@ -60,7 +60,7 @@ if __name__ == '__main__':
                                                 verbose=True)
             ids = list(map(lambda x: x[0], res[0]))
             for item in ids:
-                print(f"{item_source[item]['NAME']} | {item_source[item]['TITLE']}")
+                print(item_source[int(item)]['name'], "|", item_source[int(item)]['title'])
             print('---------------------------------')
             code = res[1][0]
             print(f"{type_source[code]['keyword']} | {type_source[code]['value']}")

@@ -7,7 +7,7 @@ import logging
 
 if __name__ == '__main__':
     logging.info('fetching data from mysql...')
-    # sqs.fetch_and_write()
+    sqs.fetch_and_write()
     logging.info('building index...')
     build_index.make_index()
     logging.info('building vocab...')
